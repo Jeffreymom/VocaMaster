@@ -1,0 +1,14 @@
+.claude/
+.agents/
+.codex/
+.chrome-test/
+.edge-test/
+*.log
+
+# GitHub 공개 업로드 제외 목록
+# (로컬 백업 폴더에는 그대로 남아있고, git에만 추적/업로드되지 않음)
+CLAUDE.md
+PROJECT_HANDOFF.md
+images/vocabulary-workbook/
+images/critical-reading/
+

@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#7c5bd6"
+  />
+
+  <title>VOCAB MASTER</title>
+
+  <!-- PWA -->
+  <link
+    rel="manifest"
+    href="./manifest.json"
+  />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="./css/style.css"
+  />
+  <link rel="stylesheet" href="./css/keyboard-quest.css" />
+</head>
+
+<body>
+
+  <button
+    id="installAppButton"
+    class="install-app-button"
+    type="button"
+    hidden
+  >앱 설치</button>
+
+  <!-- =========================
+       PC / TABLET SITE HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="site-header-inner">
+
+      <div class="site-logo">
+        <span class="site-logo-icon">📚</span>
+        VOCAB MASTER
+      </div>
+
+      <nav class="site-nav">
+
+        <button
+          class="nav-button site-nav-button"
+          data-nav="home"
+        >
+          HOME
+        </button>
+
+        <button
+          class="nav-button site-nav-button"
+          data-nav="learn"
+        >
+          단어학습
+        </button>
+
+        <button
+          class="nav-button site-nav-button"
+          data-nav="quiz"
+        >
+          QUIZ
+        </button>
+
+        <button
+          class="nav-button site-nav-button"
+          data-nav="review"
+        >
+          오답노트
+        </button>
+
+        <button
+          class="nav-button site-nav-button"
+          data-nav="favorites"
+        >
+          즐겨찾기
+        </button>
+
+        <button
+          class="nav-button site-nav-button"
+          data-nav="badges"
+        >
+          BADGES
+        </button>
+
+        <button
+          class="nav-button site-nav-button"
+          data-nav="keyboard"
+        >
+          KEYBOARD QUEST
+        </button>
+
+      </nav>
+
+      <div class="site-header-actions">
+
+        <span
+          id="headerXPChip"
+          class="header-xp-chip"
+        >
+          ⭐ 0 XP
+        </span>
+
+        <span
+          id="onlineStatus"
+          class="online-status"
+        >
+          🟢 온라인
+        </span>
+
+        <button
+          id="resetProgressButton"
+          class="reset-button"
+        >
+          기록 초기화
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       APP HEADER (WEEK 컨텍스트)
+  ========================== -->
+  <header
+    id="appHeader"
+    class="app-header hidden"
+  >
+
+    <div class="header-top">
+      <div>
+        <p class="eyebrow">VOCAB MASTER</p>
+        <h1 id="appHeaderTitle">WEEK 01</h1>
+        <p
+          class="header-sub"
+          id="appHeaderSub"
+        >
+          15 WORDS · NOVEL & DEBATE
+        </p>
+      </div>
+
+      <div class="header-icon">
+        📚
+      </div>
+    </div>
+
+    <div class="progress-area">
+
+      <div class="progress-text">
+        <span>학습 진행률</span>
+        <span id="progressCount">
+          0 / 15
+        </span>
+      </div>
+
+      <div class="progress-track">
+        <div
+          id="progressBar"
+          class="progress-bar"
+        ></div>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main class="app-main">
+
+    <!-- =========================
+         HOME SCREEN (SUBJECT 선택)
+    ========================== -->
+    <section
+      id="homeScreen"
+      class="screen active"
+    >
+
+      <!-- HERO -->
+      <section class="home-hero">
+
+        <p class="hero-kicker">
+          VOCAB MASTER
+        </p>
+
+        <h1>
+          과목별 Vocabulary 학습
+        </h1>
+
+        <p class="hero-desc">
+          교재별 WEEK 단어를 체계적으로 학습하고,<br class="hero-break">
+          실제 시험까지 대비해보세요.
+        </p>
+
+      </section>
+
+
+      <!-- XP 요약 카드 (탭하면 배지 컬렉션으로 이동) -->
+      <button
+        class="xp-summary-card"
+        id="xpSummaryCard"
+        data-nav="badges"
+      >
+
+        <div class="xp-summary-left">
+
+          <span
+            class="xp-summary-badge-icon"
+            id="xpSummaryBadgeIcon"
+          >
+            🥚
+          </span>
+
+          <div>
+            <p class="xp-summary-label">
+              VOCAB XP
+            </p>
+            <p
+              class="xp-summary-value"
+              id="xpSummaryValue"
+            >
+              0 XP
+            </p>
+          </div>
+
+        </div>
+
+        <div class="xp-summary-right">
+
+          <div class="xp-summary-track">
+            <div
+              class="xp-summary-bar"
+              id="xpSummaryBar"
+              style="width:0%"
+            ></div>
+          </div>
+
+          <span
+            class="xp-summary-next"
+            id="xpSummaryNext"
+          >
+            다음 배지까지 1000 XP
+          </span>
+
+        </div>
+
+      </button>
+
+
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">
+            SELECT A SUBJECT
+          </p>
+
+          <h2>
+            어떤 과목을 공부할까요?
+          </h2>
+        </div>
+      </div>
+
+
+      <!-- SUBJECT 선택 카드 (JS가 채워 넣음) -->
+      <div
+        id="subjectSelectGrid"
+        class="subject-select-grid"
+      >
+      </div>
+
+      <button class="keyboard-entry-card" data-nav="keyboard">
+        <span class="keyboard-entry-icon">⌨️</span>
+        <span class="keyboard-entry-copy">
+          <small>365 DAYS · 10 MINUTES A DAY</small>
+          <strong>KEYBOARD QUEST</strong>
+          <span>한글 + 영문 터치 타이핑</span>
+        </span>
+        <b>START →</b>
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         WEEK 선택 (SUBJECT별)
+    ========================== -->
+    <section
+      id="weekSelectScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="subjects"
+        >
+          ←
+        </button>
+
+        <div>
+          <p
+            class="screen-kicker"
+            id="weekSelectSubjectKicker"
+          >
+            SUBJECT
+          </p>
+
+          <h2 id="weekSelectSubjectTitle">
+            Vocabulary Workbook
+          </h2>
+        </div>
+
+      </div>
+
+
+      <!-- WEEK 선택 카드 (JS가 채워 넣음) -->
+      <div
+        id="weekSelectGrid"
+        class="week-select-grid"
+      >
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         WEEK 상세 (학습 메뉴)
+    ========================== -->
+    <section
+      id="weekDetailScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="weeks"
+        >
+          ←
+        </button>
+
+        <div>
+          <p
+            class="screen-kicker"
+            id="weekDetailSubjectKicker"
+          >
+            WEEK 목록
+          </p>
+
+          <h2 id="weekDetailTitle">
+            WEEK 01
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div class="week-detail-meta">
+
+        <span
+          id="weekDetailCount"
+          class="week-detail-count"
+        >
+          15 WORDS
+        </span>
+
+        <span
+          id="weekDetailSubtitle"
+          class="week-detail-subtitle"
+        >
+          Novel Words · Debate Words
+        </span>
+
+      </div>
+
+
+      <!-- VOCAB XP / BADGE 카드
+           (기존 "학습 진행률" 데이터는 삭제하지 않고 내부적으로
+           그대로 유지된다 - WEEK 선택 카드와 파란 상단 헤더의
+           진행률 표시가 계속 그 값을 사용한다.) -->
+      <div class="xp-detail-card">
+
+        <div class="xp-detail-top">
+          <span class="xp-detail-label">
+            VOCAB XP
+          </span>
+          <span
+            class="xp-detail-value"
+            id="weekDetailXPValue"
+          >
+            0 XP
+          </span>
+        </div>
+
+        <div class="xp-detail-progress-row">
+
+          <div class="xp-detail-progress-track">
+            <div
+              class="xp-detail-progress-bar"
+              id="weekDetailXPBar"
+              style="width:0%"
+            ></div>
+          </div>
+
+          <span
+            class="xp-detail-progress-label"
+            id="weekDetailXPProgressLabel"
+          >
+            0 / 1000
+          </span>
+
+        </div>
+
+        <div class="xp-detail-badges-row">
+
+          <div class="xp-detail-badge-block">
+            <span class="xp-detail-badge-tag">
+              현재 배지
+            </span>
+            <span id="weekDetailCurrentBadge">
+              🥚 아직 없어요
+            </span>
+          </div>
+
+          <div class="xp-detail-badge-block align-right">
+            <span class="xp-detail-badge-tag">
+              다음 배지까지
+            </span>
+            <span id="weekDetailNextBadgeGap">
+              🐣 Rookie · 1000 XP
+            </span>
+          </div>
+
+        </div>
+
+        <button
+          class="xp-detail-badges-link"
+          data-nav="badges"
+        >
+          🏅 배지 컬렉션 보기 →
+        </button>
+
+      </div>
+
+
+      <!-- LEARN -->
+      <div class="menu-group">
+
+        <p class="menu-group-title">
+          LEARN
+        </p>
+
+        <div class="study-grid">
+
+          <button
+            class="study-card"
+            data-action="learn"
+          >
+            <span class="study-icon">
+              📖
+            </span>
+
+            <strong>
+              단어 학습
+            </strong>
+
+            <span id="learnCardDesc">
+              15개 단어를 자세히 공부해요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="flashcard"
+          >
+            <span class="study-icon">
+              🔄
+            </span>
+
+            <strong>
+              플래시카드
+            </strong>
+
+            <span>
+              카드를 넘기며 빠르게 암기해요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="synonym-quiz"
+          >
+            <span class="study-icon">
+              🔗
+            </span>
+
+            <strong>
+              유의어 · 반의어
+            </strong>
+
+            <span>
+              비슷하거나 반대되는 표현을 익혀요
+            </span>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRACTICE -->
+      <div
+        class="menu-group"
+        data-test-type="vocabulary-workbook"
+      >
+
+        <p class="menu-group-title">
+          PRACTICE
+        </p>
+
+        <div class="study-grid">
+
+          <button
+            class="study-card"
+            data-action="spelling-quiz"
+          >
+            <span class="study-icon">
+              ⌨️
+            </span>
+
+            <strong>
+              듣고 스펠링
+            </strong>
+
+            <span>
+              발음만 듣고 영단어 철자를 입력해요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="wordbox"
+          >
+            <span class="study-icon">
+              📦
+            </span>
+
+            <strong>
+              Word Box 빈칸
+            </strong>
+
+            <span>
+              단어 상자에서 골라 문장 빈칸을 채워요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="context-quiz"
+          >
+            <span class="study-icon">
+              🎯
+            </span>
+
+            <strong>
+              상황형 문제
+            </strong>
+
+            <span>
+              영어 상황을 이해하고 알맞은 답을 골라요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="prefix-practice"
+          >
+            <span class="study-icon">
+              🧩
+            </span>
+
+            <strong>
+              Prefix 훈련
+            </strong>
+
+            <span>
+              hypo- 접두사 문제를 풀어봐요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="sentence-writing"
+          >
+            <span class="study-icon">
+              ✍️
+            </span>
+
+            <strong>
+              문장 만들기
+            </strong>
+
+            <span>
+              단어를 사용해 직접 문장을 써봐요
+            </span>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRACTICE (Critical Reading 전용 -
+           Vocabulary Workbook의 듣고 스펠링/Prefix 훈련/문장 만들기는
+           Critical Reading 실제 시험에 없는 유형이라 넣지 않는다) -->
+      <div
+        class="menu-group"
+        data-test-type="critical-reading"
+      >
+
+        <p class="menu-group-title">
+          PRACTICE
+        </p>
+
+        <div class="study-grid">
+
+          <button
+            class="study-card"
+            data-action="context-passage-quiz"
+          >
+            <span class="study-icon">
+              📖
+            </span>
+
+            <strong>
+              지문 속 의미 찾기
+            </strong>
+
+            <span>
+              지문을 읽고 문맥 속 단어 의미를 판단해요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="wordbox"
+          >
+            <span class="study-icon">
+              📦
+            </span>
+
+            <strong>
+              Word Box 빈칸
+            </strong>
+
+            <span>
+              6개 단어 중 5개를 골라 문장 빈칸을 채워요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="closest-meaning-quiz"
+          >
+            <span class="study-icon">
+              🎯
+            </span>
+
+            <strong>
+              Closest Meaning
+            </strong>
+
+            <span>
+              문장 속 단어와 가장 가까운 뜻을 골라요
+            </span>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEST -->
+      <div class="menu-group">
+
+        <p class="menu-group-title">
+          TEST
+        </p>
+
+        <div class="study-grid">
+
+          <button
+            class="study-card exam-card"
+            data-action="mock-test"
+            data-test-type="vocabulary-workbook,critical-reading"
+          >
+            <span class="study-icon">
+              📋
+            </span>
+
+            <strong>
+              실전 모의시험
+            </strong>
+
+            <span>
+              섹션별 실제 시험 유형으로 응시해요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="retest"
+            data-test-type="vocabulary-workbook,critical-reading"
+          >
+            <span class="study-icon">
+              🔁
+            </span>
+
+            <strong>
+              틀린 문제만 재시험
+            </strong>
+
+            <span>
+              자주 틀리는 단어 위주로 다시 풀어요
+            </span>
+          </button>
+
+
+          <button
+            class="study-card"
+            data-action="review"
+          >
+            <span class="study-icon">
+              🧠
+            </span>
+
+            <strong>
+              오답노트
+            </strong>
+
+            <span>
+              어려운 단어만 다시 공부해요
+            </span>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PREFIX CARD (MINI LESSON) -->
+      <section
+        id="miniLessonCard"
+        class="mini-card"
+      >
+
+        <div>
+          <p class="mini-label">
+            MINI LESSON · PREFIX
+          </p>
+
+          <h3 id="miniLessonPrefix">
+            hypo-
+          </h3>
+
+          <p id="miniLessonMeaning">
+            under, below
+          </p>
+        </div>
+
+        <button
+          id="prefixButton"
+          class="mini-button"
+        >
+          학습하기 →
+        </button>
+
+      </section>
+
+
+      <!-- 기존 기본 퀴즈 (뜻/단어 맞히기, 종합 테스트) -->
+      <div
+        class="menu-group legacy-group"
+        data-test-type="vocabulary-workbook"
+      >
+
+        <p class="menu-group-title">
+          BASIC QUIZ · 기존 기능
+        </p>
+
+        <div class="legacy-quiz-row">
+
+          <button
+            class="legacy-quiz-button"
+            data-action="meaning-quiz"
+          >
+            🎯 뜻 맞히기
+          </button>
+
+          <button
+            class="legacy-quiz-button"
+            data-action="word-quiz"
+          >
+            ✏️ 단어 맞히기
+          </button>
+
+          <button
+            class="legacy-quiz-button"
+            data-action="week-test"
+          >
+            🗂️ WEEK TEST (기존)
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LEARN SCREEN
+    ========================== -->
+    <section
+      id="learnScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="week"
+        >
+          ←
+        </button>
+
+        <div>
+          <p class="screen-kicker week-kicker">
+            WEEK 01
+          </p>
+
+          <h2>
+            단어 학습
+          </h2>
+        </div>
+
+      </div>
+
+      <div
+        id="learnContent"
+        class="screen-content"
+      >
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FLASHCARD SCREEN
+    ========================== -->
+    <section
+      id="flashcardScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="week"
+        >
+          ←
+        </button>
+
+        <div>
+          <p class="screen-kicker week-kicker">
+            WEEK 01
+          </p>
+
+          <h2>
+            플래시카드
+          </h2>
+        </div>
+
+      </div>
+
+      <div
+        id="flashcardContent"
+        class="screen-content"
+      >
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUIZ SCREEN
+    ========================== -->
+    <section
+      id="quizScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="week"
+        >
+          ←
+        </button>
+
+        <div>
+          <p class="screen-kicker week-kicker">
+            WEEK 01
+          </p>
+
+          <h2>
+            QUIZ
+          </h2>
+        </div>
+
+      </div>
+
+      <div
+        id="quizContent"
+        class="screen-content"
+      >
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REVIEW SCREEN
+    ========================== -->
+    <section
+      id="reviewScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="week"
+        >
+          ←
+        </button>
+
+        <div>
+          <p class="screen-kicker week-kicker">
+            WEEK 01
+          </p>
+
+          <h2>
+            오답노트
+          </h2>
+        </div>
+
+      </div>
+
+      <div
+        id="reviewContent"
+        class="screen-content"
+      >
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PREFIX SCREEN
+    ========================== -->
+    <section
+      id="prefixScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="week"
+        >
+          ←
+        </button>
+
+        <div>
+          <p class="screen-kicker">
+            MINI LESSON
+          </p>
+
+          <h2>
+            Prefix
+          </h2>
+        </div>
+
+      </div>
+
+      <div
+        id="prefixContent"
+        class="screen-content"
+      >
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAVORITES SCREEN
+    ========================== -->
+    <section
+      id="favoritesScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="home"
+        >
+          ←
+        </button>
+
+        <div>
+          <p class="screen-kicker">
+            VOCAB MASTER
+          </p>
+
+          <h2>
+            즐겨찾기
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="screen-content">
+
+        <div class="empty-state">
+
+          ⭐
+          <br><br>
+
+          즐겨찾기 기능은 준비 중이에요.
+
+          <br>
+
+          곧 좋아하는 단어를
+          따로 모아볼 수 있게 될 예정이에요.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- KEYBOARD QUEST · SUBJECT와 분리된 독립 학습 영역 -->
+    <section id="keyboardQuestScreen" class="screen">
+      <div class="screen-header">
+        <button class="back-button" data-back="home">←</button>
+        <div><p class="screen-kicker">DAILY TYPING ADVENTURE</p><h2>타자 연습</h2></div>
+      </div>
+      <div id="keyboardQuestContent" class="screen-content"></div>
+    </section>
+
+    <section id="keyboardPlayScreen" class="screen">
+      <div class="screen-header kq-play-header">
+        <button class="back-button" data-kq-back>←</button>
+        <div><p class="screen-kicker">KEYBOARD QUEST</p><h2>10 MINUTE MISSION</h2></div>
+      </div>
+      <div id="keyboardPlayContent" class="screen-content"></div>
+    </section>
+
+    <!-- =========================
+         BADGES SCREEN (BADGE COLLECTION)
+    ========================== -->
+    <section
+      id="badgesScreen"
+      class="screen"
+    >
+
+      <div class="screen-header">
+
+        <button
+          class="back-button"
+          data-back="home"
+        >
+          ←
+        </button>
+
+        <div>
+          <p class="screen-kicker">
+            VOCAB MASTER
+          </p>
+
+          <h2>
+            MY BADGES
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="screen-content">
+
+        <div
+          class="xp-total-banner"
+          id="badgesXPBanner"
+        >
+          ⭐ 0 XP
+        </div>
+
+        <div
+          id="badgeGrid"
+          class="badge-grid"
+        >
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       PC / TABLET FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <p class="site-footer-title">
+      Designed &amp; Developed by EJ Cha
+    </p>
+
+    <p class="site-footer-copy">
+      © 2026 Cha Eunjeong. All rights reserved. All works are protected by copyright. Permission is required before copying, modifying, redistributing, or using any part commercially.
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       BOTTOM NAVIGATION (MOBILE)
+  ========================== -->
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-button active"
+      data-nav="home"
+    >
+      <span>⌂</span>
+      HOME
+    </button>
+
+    <button
+      class="nav-button"
+      data-nav="learn"
+    >
+      <span>📖</span>
+      LEARN
+    </button>
+
+    <button
+      class="nav-button"
+      data-nav="quiz"
+    >
+      <span>✓</span>
+      QUIZ
+    </button>
+
+    <button
+      class="nav-button"
+      data-nav="review"
+    >
+      <span>↻</span>
+      REVIEW
+    </button>
+
+  </nav>
+
+
+  <!-- =========================
+       BADGE UNLOCK MODAL
+  ========================== -->
+  <div
+    class="badge-modal-overlay"
+    id="badgeModalOverlay"
+  >
+
+    <div class="badge-modal-card">
+
+      <p class="badge-modal-kicker">
+        🎉 NEW BADGE!
+      </p>
+
+      <div
+        class="badge-modal-icon"
+        id="badgeModalIcon"
+      >
+        🐣
+      </div>
+
+      <h3
+        class="badge-modal-name"
+        id="badgeModalName"
+      >
+        Rookie
+      </h3>
+
+      <p
+        class="badge-modal-xp"
+        id="badgeModalXP"
+      >
+        1000 XP 달성!
+      </p>
+
+      <button
+        class="badge-modal-confirm"
+        id="badgeModalConfirm"
+      >
+        확인
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <!-- SUBJECT/WEEK DATA 먼저 (새 WEEK를 추가하면 이 자리에 script 태그를 추가) -->
+  <script src="./js/data/vocabulary-workbook/week01.js"></script>
+  <script src="./js/data/vocabulary-workbook/week02.js"></script>
+
+  <script src="./js/data/critical-reading/week01.js"></script>
+  <script src="./js/data/keyboard-curriculum.js"></script>
+
+  <!-- SUBJECT REGISTRY (모든 데이터 스크립트 다음, app.js 이전) -->
+  <script src="./js/data/subjects.js"></script>
+
+  <!-- APP LOGIC 나중 -->
+  <script src="./js/app.js"></script>
+  <script src="./js/keyboard-quest.js"></script>
+
+</body>
+</html>
