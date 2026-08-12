@@ -71,15 +71,57 @@ const SUBJECTS = [
         id: 3,
         slug: "week03",
         title: "WEEK 03",
-        subtitle: "준비 중",
+        subtitle: "Novel Words · Debate Words",
         data: getWeekData("vocabulary-workbook", "week03")
       },
       {
         id: 4,
         slug: "week04",
         title: "WEEK 04",
-        subtitle: "준비 중",
+        subtitle: "Novel Words · Debate Words",
         data: getWeekData("vocabulary-workbook", "week04")
+      },
+      {
+        id: 5,
+        slug: "week05",
+        title: "WEEK 05",
+        subtitle: "Novel Words · Debate Words",
+        data: getWeekData("vocabulary-workbook", "week05")
+      },
+      {
+        id: 6,
+        slug: "week06",
+        title: "WEEK 06",
+        subtitle: "Novel Words Review · Debate Words",
+        data: getWeekData("vocabulary-workbook", "week06")
+      },
+      {
+        id: 7,
+        slug: "week07",
+        title: "WEEK 07",
+        subtitle: "Novel Words · Debate Words",
+        data: getWeekData("vocabulary-workbook", "week07")
+      },
+      {
+        id: 8,
+        slug: "week08",
+        title: "WEEK 08",
+        subtitle: "Novel Words · Debate Words",
+        data: getWeekData("vocabulary-workbook", "week08")
+      },
+      {
+        id: 9,
+        slug: "week09",
+        title: "WEEK 09",
+        subtitle: "Novel Words · Debate Words",
+        data: getWeekData("vocabulary-workbook", "week09")
+      },
+      {
+        id: 10,
+        slug: "week10",
+        title: "WEEK 10",
+        subtitle: "Novel Words · Debate Words",
+        data: getWeekData("vocabulary-workbook", "week10")
       }
     ]
   },

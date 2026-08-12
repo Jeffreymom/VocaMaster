@@ -1,11 +1,15 @@
 const CACHE_PREFIX = "vocab-master-shell-";
-const CACHE_NAME = `${CACHE_PREFIX}v11`;
+const CACHE_NAME = `${CACHE_PREFIX}v12`;
 const APP_SHELL = [
   "./", "./index.html", "./manifest.json", "./css/style.css",
   "./css/keyboard-quest.css", "./js/app.js", "./js/keyboard-quest.js",
   "./js/data/keyboard-curriculum.js",
   "./js/data/subjects.js", "./js/data/vocabulary-workbook/week01.js",
-  "./js/data/vocabulary-workbook/week02.js", "./js/data/critical-reading/week01.js",
+  "./js/data/vocabulary-workbook/week02.js", "./js/data/vocabulary-workbook/week03.js",
+  "./js/data/vocabulary-workbook/week04.js", "./js/data/vocabulary-workbook/week05.js",
+  "./js/data/vocabulary-workbook/week06.js", "./js/data/vocabulary-workbook/week07.js",
+  "./js/data/vocabulary-workbook/week08.js", "./js/data/vocabulary-workbook/week09.js",
+  "./js/data/vocabulary-workbook/week10.js", "./js/data/critical-reading/week01.js",
   "./icons/icon-192.png", "./icons/icon-512.png",
   "./images/stamps/stamps2.png"
 ];
