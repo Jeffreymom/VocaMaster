@@ -197,7 +197,7 @@ const WEEK01 = {
       bookSentence:
         "I tried gnawing my way out, but the strands were made of some kind of plastic, as hard as wire.",
       example:
-        "My dog gnawed through his toys so quickly that I had to buy him a new one!",
+        "My dog gnawed through his favorite toy so quickly that I had to buy him a new one!",
       modelSentences: [
         {
           type: "basic",
@@ -332,7 +332,7 @@ const WEEK01 = {
       bookSentence:
         "During the days that followed, our lives fell into a pattern, and the reason for our captivity gradually became clear.",
       example:
-        "Animals bred in captivity would struggle to survive in the wild.",
+        "Animals bred in captivity often struggle to survive when released into the wild.",
       modelSentences: [
         {
           type: "basic",
@@ -400,7 +400,7 @@ const WEEK01 = {
           type: "cause",
           label: "CAUSE & EFFECT",
           sentence:
-            "Because the desert heat bent the light near the road, drivers often mistook it for the illusion of water ahead."
+            "Because the desert heat bent the light near the road, drivers often mistook the illusion for real water ahead."
         },
         {
           type: "challenge",
@@ -625,7 +625,7 @@ const WEEK01 = {
           type: "cause",
           label: "CAUSE & EFFECT",
           sentence:
-            "Because the smoke alarm went off, the whole building responded to the emergency drill within seconds."
+            "Because the smoke alarm went off, everyone in the building responded to the emergency drill within seconds."
         },
         {
           type: "challenge",
@@ -647,7 +647,7 @@ const WEEK01 = {
       bookSentence:
         "\"Young people . . . from the working class, or low income who are talented when they are young . . . don't make it to the finish line,\" Carnevale said.",
       example:
-        "Middle class families often live in modest homes with comfortable living spaces.",
+        "Middle-class families often live in modest but comfortable homes.",
       modelSentences: [
         {
           type: "basic",
@@ -692,7 +692,7 @@ const WEEK01 = {
       bookSentence:
         "Tsay found the same kind of judgements that she had seen in the assessments of musical ability.",
       example:
-        "Dr. Duren performed an assessment before recommending surgery for the patient's injury.",
+        "Dr. Duren performed a thorough assessment of the patient's injury before recommending surgery.",
       modelSentences: [
         {
           type: "basic",
@@ -1161,7 +1161,7 @@ const WEEK01 = {
       ],
       sentences: [
         { text: "Before the championship game, the coach gave the team a new defensive ___ to follow during the final quarter.", answer: "strategy" },
-        { text: "Ticket sales this summer are expected to ___ every previous record set by the theater.", answer: "surpass" },
+        { text: "Ticket sales this summer are expected to ___ the theater's all-time record of 40,000 tickets sold in one season.", answer: "surpass" },
         { text: "Firefighters are trained to ___ emergencies within minutes of receiving a call.", answer: "respond to" },
         { text: "Sociologists study how the economic ___ a person is born into can shape their access to education and healthcare.", answer: "class" },
         { text: "Before approving the loan, the bank ordered a full financial ___ to determine whether the business could repay it.", answer: "assessment" }

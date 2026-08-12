@@ -395,13 +395,13 @@ const WEEK01 = {
           type: "school",
           label: "SCHOOL",
           sentence:
-            "Our art teacher praised the student's versatility for working skillfully with paint, clay, and digital design."
+            "Our art teacher praised the student for her versatility in working skillfully with paint, clay, and digital design."
         },
         {
           type: "daily",
           label: "DAILY LIFE",
           sentence:
-            "The versatility of this one jacket makes it perfect for hiking, rain, or just walking to school."
+            "The versatility of this one jacket makes it perfect for hiking, staying dry in the rain, or just walking to school."
         },
         {
           type: "cause",
@@ -413,7 +413,7 @@ const WEEK01 = {
           type: "challenge",
           label: "CHALLENGE",
           sentence:
-            "Although he was originally hired only as a translator, his versatility with editing and public speaking eventually earned him a much larger role at the company."
+            "Although he was originally hired only as a translator, his versatility in editing and public speaking eventually earned him a much larger role at the company."
         }
       ]
     },
@@ -1167,7 +1167,7 @@ const WEEK01 = {
         "effectively"
       ],
       sentences: [
-        { text: "Our tour guide seemed incredibly ___ about every painting in the museum.", answer: "knowledgeable" },
+        { text: "Our tour guide could correctly name the artist, year, and hidden story behind every single painting, seeming incredibly ___ about the museum's collection.", answer: "knowledgeable" },
         { text: "Wearing a seatbelt is ___ in nearly every country in the world.", answer: "mandatory" },
         { text: "The lawyer's closing argument felt ___ because it lacked any real evidence.", answer: "unconvincing" },
         { text: "The nurse kept a close eye on the patient's ___ heartbeat throughout the night.", answer: "steady" },

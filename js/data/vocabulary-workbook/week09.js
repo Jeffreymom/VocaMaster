@@ -118,7 +118,7 @@ const WEEK01 = {
           type: "school",
           label: "SCHOOL",
           sentence:
-            "Despite being the oldest player on the team, the coach admired her sprightliness during every practice."
+            "Despite being the oldest player on the team, she impressed the coach with her sprightliness during every practice."
         },
         {
           type: "daily",
@@ -1179,7 +1179,7 @@ const WEEK01 = {
       ],
       sentences: [
         { text: "The inflatable raft stayed ___ even after three people climbed aboard.", answer: "buoyant" },
-        { text: "Despite being well past eighty, she greeted every guest with remarkable ___.", answer: "sprightliness" },
+        { text: "Despite being well past eighty, she raced up and down the stairs all evening with remarkable ___, never once needing to rest.", answer: "sprightliness" },
         { text: "Years of practice gave the seamstress incredible ___ with a needle and thread.", answer: "dexterity" },
         { text: "The climbers began to ___ the final ridge just as the sun was rising.", answer: "ascend" },
         { text: "The waiting room erupted ___ the moment the results were finally announced.", answer: "tumultuously" }

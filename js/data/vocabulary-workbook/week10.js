@@ -332,12 +332,12 @@ const WEEK01 = {
       bookSentence:
         "\"Class be seated, hands folded on desks,\" [the teacher] barked, and there was immediate compliance.",
       example:
-        "Drivers must guarantee compliance with traffic laws to avoid accidents and fines.",
+        "Drivers must stay in compliance with traffic laws to avoid accidents and fines.",
       modelSentences: [
         {
           type: "basic",
           label: "BASIC",
-          sentence: "The workers acted in full compliance."
+          sentence: "The workers acted in full compliance with the safety rules."
         },
         {
           type: "school",
@@ -1200,7 +1200,7 @@ const WEEK01 = {
         { text: "The new employee handbook was written to ensure full ___ with workplace safety laws.", answer: "compliance" },
         { text: "Every entry in the science fair was placed under close ___ by a panel of judges.", answer: "scrutiny" },
         { text: "Local fishermen ___ near the docks every morning before heading out to sea.", answer: "congregate" },
-        { text: "News of the unfair ruling sparked immediate ___ across social media.", answer: "outrage" }
+        { text: "News of the unfair ruling sparked immediate ___, as furious comments flooded social media within minutes.", answer: "outrage" }
       ]
     }
   ],

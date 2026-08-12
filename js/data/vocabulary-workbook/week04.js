@@ -483,7 +483,7 @@ const WEEK01 = {
           type: "daily",
           label: "DAILY LIFE",
           sentence:
-            "The temperature seems to descend quickly once the sun goes down in the mountains."
+            "We had to descend carefully along the rocky path to reach the riverbank for our picnic."
         },
         {
           type: "cause",
@@ -601,7 +601,7 @@ const WEEK01 = {
       bookSentence:
         "Winning requires more than skill; it demands commitment and persistence.",
       example:
-        "Adoption of a dog requires a serious commitment to daily walks and regular feeding.",
+        "Adopting a dog requires a serious commitment to daily walks and regular feeding.",
       modelSentences: [
         {
           type: "basic",
@@ -1162,7 +1162,7 @@ const WEEK01 = {
         { text: "After the flight was delayed, our travel plans had to be ___ at the last minute.", answer: "altered" },
         { text: "Among all the entries, the judges considered her painting the most ___ for its bold use of color.", answer: "notable" },
         { text: "Training for a marathon demands real ___, since skipping even one week can set a runner back.", answer: "commitment" },
-        { text: "Despite claiming to be fair, the judge's rulings revealed a clear ___ against smaller companies, favoring large corporations without solid evidence.", answer: "prejudice" },
+        { text: "Despite claiming to be fair, the judge's rulings revealed a clear ___ against smaller companies, since he always assumed they were guilty without knowing any of the facts.", answer: "prejudice" },
         { text: "When the ball flew toward her face, she ___ raised her hands to protect herself.", answer: "instinctively" }
       ]
     },
@@ -1260,7 +1260,7 @@ const WEEK01 = {
       relatedWord: "success",
       question: "When might someone achieve success?",
       choices: [
-        "when going towards a goal of finishing a marathon",
+        "when working hard toward a goal and finally crossing the marathon finish line",
         "when planning to learn how to play the piano someday",
         "when starting a long book but quitting after the first chapter",
         "when watching a friend win a chess tournament from the audience"

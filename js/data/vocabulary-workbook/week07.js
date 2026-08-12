@@ -304,7 +304,7 @@ const WEEK01 = {
           type: "daily",
           label: "DAILY LIFE",
           sentence:
-            "My grandfather's erudition about local plants always amazes the neighbors on our walks."
+            "My grandfather's erudition on local plants always amazes the neighbors on our walks."
         },
         {
           type: "cause",
@@ -1179,7 +1179,7 @@ const WEEK01 = {
       ],
       sentences: [
         { text: "After the pipe burst, water began to ___ from the kitchen sink onto the floor.", answer: "overflow" },
-        { text: "The moment the dog barked, a family of raccoons began to ___ across the backyard fence.", answer: "scamper" },
+        { text: "The moment the dog barked, a family of raccoons began to ___ along the backyard fence.", answer: "scamper" },
         { text: "Students lined up for hours just to hear the ___ author speak about her sixty years of writing.", answer: "venerable" },
         { text: "The research team spent two years planning their ___ to the bottom of the ocean trench.", answer: "expedition" },
         { text: "Even after losing everything in the fire, the family faced their situation with remarkable ___.", answer: "dignity" }

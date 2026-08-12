@@ -467,7 +467,7 @@ const WEEK01 = {
       bookSentence:
         "I would advise all people . . . who chance to have but one eye amongst them, to cultivate forbearance, and not all insist upon peeping through it at once.",
       example:
-        "It is important to cultivate good study habits in order to succeed in school through trial and error.",
+        "It is important to cultivate good study habits through trial and error in order to succeed in school.",
       modelSentences: [
         {
           type: "basic",
@@ -490,7 +490,7 @@ const WEEK01 = {
           type: "cause",
           label: "CAUSE & EFFECT",
           sentence:
-            "Because the soil had been neglected for so long, it took several seasons to cultivate a healthy harvest again."
+            "Because the soil had been neglected for so long, it took several seasons to cultivate a healthy crop again."
         },
         {
           type: "challenge",
@@ -692,7 +692,7 @@ const WEEK01 = {
       bookSentence:
         "The rationale for this rule can be articulated in two ways. First, the law holds that an individual does not owe a duty to take affirmative actions to rescue others from danger . . .",
       example:
-        "The pilot explained the rationale behind the delay of the flight during severe weather.",
+        "The pilot explained the rationale behind delaying the flight due to the severe weather.",
       modelSentences: [
         {
           type: "basic",
@@ -1161,7 +1161,7 @@ const WEEK01 = {
       ],
       sentences: [
         { text: "The surgeon needed to measure the dosage ___ to avoid any risk to the patient.", answer: "precisely" },
-        { text: "Without checking the schedule, we ___ the train would arrive on time as usual.", answer: "assume" },
+        { text: "Since there was no way to check the schedule, we could only ___ the train would arrive on time, just as it always did.", answer: "assume" },
         { text: "The pamphlet only offers a ___ overview of the park's history, not a detailed timeline.", answer: "general" },
         { text: "The scientist used a simple experiment to ___ how air pressure affects boiling temperature.", answer: "demonstrate" },
         { text: "The committee published a detailed ___ explaining exactly why the new policy was necessary.", answer: "rationale" }

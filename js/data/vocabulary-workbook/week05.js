@@ -241,7 +241,7 @@ const WEEK01 = {
       bookSentence:
         "The block was poised and in position; the hole was exactly the right size and shape.",
       example:
-        "The musical actors stood poised on the stage in anticipation of the rising curtain.",
+        "The actors stood poised in the wings, ready to step onstage the moment the curtain rose.",
       modelSentences: [
         {
           type: "basic",
@@ -376,7 +376,7 @@ const WEEK01 = {
       bookSentence:
         ". . . [the rat] got up and ran again, this time more slowly, circling vaguely to the right.",
       example:
-        "The children circled around the campfire and roasted marshmallows.",
+        "The children circled the campfire three times before settling down to roast marshmallows.",
       modelSentences: [
         {
           type: "basic",
@@ -601,7 +601,7 @@ const WEEK01 = {
       bookSentence:
         "In the quest for success, whether personal, professional, or academic, one trait consistently emerges as a critical determinant: perseverance.",
       example:
-        "Dr. Han dedicated her entire life to a quest for cancer treatment methods.",
+        "Dr. Han dedicated her entire life to a quest for a cure for cancer.",
       modelSentences: [
         {
           type: "basic",
@@ -1181,7 +1181,7 @@ const WEEK01 = {
         { text: "Because the fox was behaving strangely, the park ranger warned hikers about the risk of ___.", answer: "rabies" },
         { text: "The force of the ___ was strong enough to crack the windshield.", answer: "impact" },
         { text: "After losing the argument, my little brother ___ handed over the remote control.", answer: "grudgingly" },
-        { text: "The diver stood ___ on the edge of the board, waiting for the whistle to blow.", answer: "poised" }
+        { text: "The diver stood ___ on the edge of the board, muscles tense, waiting for the starting whistle.", answer: "poised" }
       ]
     },
 
@@ -1196,7 +1196,7 @@ const WEEK01 = {
       ],
       sentences: [
         { text: "Every year, thousands of fans ___ outside the stadium hours before the championship game begins, forming one enormous crowd.", answer: "gather" },
-        { text: "Winning the scholarship inspired her to ___ her community through years of volunteer work.", answer: "repay" },
+        { text: "Grateful for the scholarship that changed her life, she was determined to ___ her community's kindness through years of volunteer work.", answer: "repay" },
         { text: "The vulture began to ___ slowly above the desert, searching for food.", answer: "circle" },
         { text: "The boxer was declared ___ after failing to get up before the referee's count reached ten.", answer: "unconscious" },
         { text: "My teacher looked at me ___ when I said I had finished the entire project in one night.", answer: "incredulously" }
