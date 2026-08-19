@@ -1950,6 +1950,26 @@ function startQuiz(mode = "meaning") {
       );
   }
 
+  else if (
+    mode === "book-synonym"
+  ) {
+
+    availableWords =
+      availableWords.filter(
+        word => word.synonym
+      );
+  }
+
+  else if (
+    mode === "book-antonym"
+  ) {
+
+    availableWords =
+      availableWords.filter(
+        word => word.antonym
+      );
+  }
+
 
   quizQuestions =
     shuffle(availableWords);
@@ -2977,6 +2997,94 @@ function renderQuiz() {
 
     }
 
+  }
+
+
+  else if (
+    quizMode === "book-synonym"
+  ) {
+
+    const reverseDirection =
+      Math.random() > 0.5;
+
+    if (reverseDirection) {
+
+      guideText =
+        "교재 동의어에 해당하는 단어를 고르세요";
+
+      questionText =
+        word.synonym;
+
+      correctAnswer =
+        word.word;
+
+      answerPool =
+        words
+          .filter(item => item.synonym)
+          .map(item => item.word);
+
+    }
+
+    else {
+
+      guideText =
+        "단어에 맞는 교재 동의어를 고르세요";
+
+      questionText =
+        word.word;
+
+      correctAnswer =
+        word.synonym;
+
+      answerPool =
+        words
+          .filter(item => item.synonym)
+          .map(item => item.synonym);
+    }
+  }
+
+
+  else if (
+    quizMode === "book-antonym"
+  ) {
+
+    const reverseDirection =
+      Math.random() > 0.5;
+
+    if (reverseDirection) {
+
+      guideText =
+        "교재 반의어에 해당하는 단어를 고르세요";
+
+      questionText =
+        word.antonym;
+
+      correctAnswer =
+        word.word;
+
+      answerPool =
+        words
+          .filter(item => item.antonym)
+          .map(item => item.word);
+
+    }
+
+    else {
+
+      guideText =
+        "단어에 맞는 교재 반의어를 고르세요";
+
+      questionText =
+        word.word;
+
+      correctAnswer =
+        word.antonym;
+
+      answerPool =
+        words
+          .filter(item => item.antonym)
+          .map(item => item.antonym);
+    }
   }
 
 
@@ -4997,6 +5105,18 @@ function handleAnswer(
 
     quizScore++;
 
+    if (
+      (quizMode === "book-synonym" ||
+        quizMode === "book-antonym") &&
+      shouldAwardPracticeXP()
+    ) {
+
+      awardRepeatableXP(
+        `${currentSubject.id}:${currentWeek.slug}:${quizMode}:${originalWord}`,
+        XP_REWARDS.contextCorrect
+      );
+    }
+
   }
 
   else {
@@ -5555,6 +5675,20 @@ function bindMainButtons() {
             case "closest-meaning-quiz":
 
               startClosestMeaningQuiz();
+
+              break;
+
+
+            case "book-synonym-quiz":
+
+              startQuiz("book-synonym");
+
+              break;
+
+
+            case "book-antonym-quiz":
+
+              startQuiz("book-antonym");
 
               break;
 

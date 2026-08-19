@@ -145,7 +145,7 @@ const SUBJECTS = [
         id: 2,
         slug: "week02",
         title: "WEEK 02",
-        subtitle: "준비 중",
+        subtitle: "1–10 BRICKS INTENSIVE READING 2\n11–25 TOEFL MAP READING BASIC",
         data: getWeekData("critical-reading", "week02")
       },
       {
